@@ -1,23 +1,8 @@
-// Hiệu ứng highlight menu khi cuộn
-const sections = document.querySelectorAll(".page");
-const navLinks = document.querySelectorAll(".nav-links a");
-
-window.addEventListener("scroll", () => {
-    let current = "";
-    sections.forEach((section) => {
-        const sectionTop = section.offsetTop;
-        if (pageYOffset >= sectionTop - 60) {
-            current = section.getAttribute("id");
-        }
-    });
-
-    navLinks.forEach((link) => {
-        link.classList.remove("active");
-        if (link.getAttribute("href").includes(current)) {
-            link.classList.add("active");
-        }
-    });
+document.addEventListener('DOMContentLoaded', () => {
+    // Thêm hiệu ứng trượt nhẹ khi load trang
+    document.querySelector('.hero-content').style.opacity = '0';
+    setTimeout(() => {
+        document.querySelector('.hero-content').style.transition = 'opacity 1s';
+        document.querySelector('.hero-content').style.opacity = '1';
+    }, 100);
 });
-
-// Chuyển đổi theme (giữ lại từ bản trước)
-// ...
